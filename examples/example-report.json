@@ -1,0 +1,85 @@
+{
+  "target": "synthetic-export",
+  "kind": "assetripper_export",
+  "counts": {
+    "shaders": 2,
+    "materials": 6,
+    "textures": 2
+  },
+  "checks": [
+    {
+      "id": "dummy_shaders",
+      "title": "Dummy (stub) shaders \u2014 the renders-pure-white class",
+      "status": "FAIL",
+      "summary": "2 shader(s) in export, 1 dummy, 3 material(s) on dummy shaders",
+      "details": {
+        "dummy_shaders": [
+          {
+            "shader": "Toony Colors Pro 2/Standard",
+            "file": "synthetic-export/Assets/Shader/ToonyColorsPro2.shader",
+            "signals": [
+              "DummyShaderTextExporter marker comment",
+              "fragment returns constant float4(1,1,1,1) (pure white)"
+            ],
+            "material_count": 3,
+            "materials": [
+              "holly_body",
+              "holly_hair",
+              "sam_body"
+            ]
+          }
+        ],
+        "unguided_shader_files": []
+      }
+    },
+    {
+      "id": "material_census",
+      "title": "Material census by shader",
+      "status": "PASS",
+      "summary": "6 material(s) parsed",
+      "details": {
+        "by_shader": {
+          "Custom/GoodLit": 3,
+          "Toony Colors Pro 2/Standard": 3
+        },
+        "unresolved_shader_materials": []
+      }
+    },
+    {
+      "id": "texture_slots",
+      "title": "Texture slots \u2014 empty primary maps",
+      "status": "WARN",
+      "summary": "1 material(s) with an empty primary map slot on a real shader (renders untextured/flat)",
+      "details": {
+        "empty_primary_slots": [
+          {
+            "material": "flat_prop",
+            "shader": "Custom/GoodLit",
+            "slot": "_MainTex"
+          }
+        ],
+        "other_empty_declared_slots_top": {
+          "Custom/GoodLit :: _BumpMap": 1
+        }
+      }
+    },
+    {
+      "id": "texture_files",
+      "title": "Texture files \u2014 missing references & zero-byte files",
+      "status": "FAIL",
+      "summary": "2 texture file(s) in export; 1 material texture reference(s) point at GUIDs with no file in the export; 1 zero-byte texture file(s)",
+      "details": {
+        "missing_referenced_textures": [
+          {
+            "material": "broken_ref",
+            "slot": "_MainTex",
+            "guid": "bbbb0000000000000000000000000999"
+          }
+        ],
+        "zero_byte_textures": [
+          "synthetic-export/Assets/Texture2D/empty_tex.png"
+        ]
+      }
+    }
+  ]
+}
